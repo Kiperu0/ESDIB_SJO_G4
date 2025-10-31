@@ -17,8 +17,8 @@
     body{font-family:var(--font);background:var(--white);color:var(--blue-dark);min-height:100vh;display:flex;flex-direction:column}
 
     /* Animación fade-in */
-    .fade{animation:fadeIn .4s ease forwards;opacity:0}
-    @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none;opacity:1}}
+    .fade{animation:fadeIn .4s ease forwards;}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 
     .icon-img {
     width: 28px;
@@ -32,12 +32,18 @@
     object-fit: contain;
     border-radius: 0;
     pointer-events: none;
+    transition: filter 0.2s;
+    }
+    .active-btn img{
+    filter: brightness(0) invert(1);
     } 
     /* Barra de navegación */
     header{background:var(--blue-dark);color:var(--white);display:flex;align-items:center;justify-content:space-between;padding:12px 16px;position:sticky;top:0;z-index:50}
     header .icon{font-size:22px;cursor:pointer}
 
-    main{flex:1;padding:20px;display:flex;flex-direction:column;align-items:center;text-align:center}
+    main{flex:1;padding:20px;display:flex;flex-direction:column;text-align:center}
+    #home{width: 100%; display: flex; flex-direction: column; align-items: flex-start;}
+    #home > *{margin-left: 0; margin-right: 0;}
     h1{font-size:28px;margin-bottom:12px}
     p{margin-bottom:24px;max-width:320px}
 
@@ -63,7 +69,30 @@
     .activity-text{border:2px solid var(--blue-dark);border-radius:12px;padding:12px;margin:10px auto;width:95%;max-width:500px;text-align:justify;line-height:1.4}
     .comment{margin-left:40px}
 
-    /* Responsive desktop 0 bien puesto*/
+    /* Estilos para Recursos */
+    .resource-item{margin: 20px auto; width: 95%; max-width: 500px;}
+    .resource-tag{background: var(--blue-light); color: var(--blue-dark); padding: 8px 16px; border-radius: 8px; display: inline-block; margin-bottom: 12px; font-weight: 600;}
+    .resource-image{border: 2px solid var(--blue-dark); border-radius: 12px; padding: 60px 20px; text-align: center; color: #999; margin-bottom: 12px;}
+
+    /* Estilos para Calendario */
+    .calendar-box{border: 2px solid var(--blue-dark); border-radius: 12px; padding: 16px; margin: 20px auto; max-width: 500px; width: 95%;}
+    .calendar-label{color: #999; font-size: 14px; margin-bottom: 8px;}
+    .calendar-content{color: #999; font-size: 13px; line-height: 1.4;}
+    .check-icon{width: 32px; height: 32px; border-radius: 50%; background: var(--white); border: 2px solid var(--blue-dark); color: var(--blue-dark); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px;}
+
+    /* Estilos para Foro */
+    .search-bar{display: flex; align-items: center; gap: 12px; border: 2px solid var(--blue-dark); border-radius: 12px; padding: 8px 16px; margin: 20px auto; max-width: 500px; width: 95%;}
+    .forum-post{margin: 20px auto; width: 95%; max-width: 500px;}
+
+    /* Estilos para Home según wireframe */
+    .home-title{background: var(--blue-light); color: var(--blue-dark); padding: 20px; border-radius: 12px; font-size: 24px; font-weight: bold; margin-bottom: 20px !important; width: 92%; margin-left: auto; margin-right: auto;}
+    .btn-home{margin: 16px 0 !important; display: block; margin-left: 8%;}
+    
+    /* Texto del home */
+    #home .text-block{width: 92%; margin: 20px auto !important; text-align: left; line-height: 1.5;}
+    #home .text-block:first-of-type{width: 92%; margin: 20px auto !important;}
+
+    /* Responsive desktop */
     @media(min-width:768px){
       body{align-items:center}
       main{max-width:700px;padding:40px}
@@ -72,28 +101,20 @@
   </style>
 </head>
 <body>
-  <!-- 
-  ESTILO PARA CAMBIAR EMOJIS.
-
-
-  <img class="icon-img" src="" alt="descripción">
-
-  
-  -->
   <header>
     <div class="icon" id="menuBtn">☰</div>
-    <img class="icon-img" src="img/home.png" alt="home">
+    <img class="icon-img" id="homeBtn" src="img/home.png" alt="home" style="filter: brightness(0) invert(1); cursor: pointer;">
     <img class="icon-img" src="img/iniciosesion.png" alt="iniciosesion">
   </header>
 
   <main id="content">
     <section id="home" class="page active fade">
-      <h1>Phubbing</h1>
-      <p>Cuerpo de texto</p>
-      <button class="btn" data-target="actividades">Actividades</button>
-      <p style="margin-top:20px;">Cuerpo de texto</p>
-      <button class="btn" data-target="foro">Foro</button>
-      <p style="margin-top:20px;">Cuerpo de texto</p>
+      <div class="home-title">Título</div>
+      <div class="text-block">Cuerpo de texto</div>
+      <button class="btn btn-home" data-target="actividades">Actividades</button>
+      <div class="text-block">Cuerpo de texto</div>
+      <button class="btn btn-home" data-target="foro">Foro</button>
+      <div class="text-block">Cuerpo de texto</div>
     </section>
 
     <section id="actividades" class="page fade" style="display:none;">
@@ -132,21 +153,129 @@
 
     <section id="recursos" class="page fade" style="display:none;">
       <h1>Recursos</h1>
-      <p>Explora materiales y guías para aprender a gestionar mejor tu tiempo digital.</p>
-      <img src="/mnt/data/MovilRecursos.png" alt="Recurso" style="width:100%;max-width:300px;border-radius:12px;margin:20px 0;">
-      <button class="btn" data-target="home">Volver</button>
+      
+      <div class="section-title">Recursos</div>
+      
+      <div class="resource-item">
+        <div class="resource-tag">Recurso</div>
+        <div class="resource-image">Imagen</div>
+        <div class="activity-text">Información del recurso</div>
+      </div>
+
+      <div class="resource-item">
+        <div class="resource-tag">Recurso</div>
+        <div class="resource-image">Imagen</div>
+        <div class="activity-text">Información del recurso</div>
+      </div>
     </section>
 
     <section id="calendario" class="page fade" style="display:none;">
       <h1>Calendario</h1>
-      <p class="text-block">Aquí aparecerán tus actividades agendadas y recordatorios cuando estén disponibles. (Contenido pendiente de diseño).</p>
+      
+      <div class="calendar-box">
+        <div class="calendar-label">Calendario</div>
+        <div class="calendar-content">(Muestra eventos propuestos por los usuarios)</div>
+      </div>
+
+      <div class="section-title">Actividades propuestas</div>
+
+      <div class="activity-row">
+        <div class="user-info">
+          <img class="user-icon icon-img" src="img/iniciosesion.png" alt="Usuario">
+          <div class="user-name">Juana Mari</div>
+        </div>
+        <div class="plus-btn" onclick="toggleApuntado(this)">+</div>
+      </div>
+      <div class="activity-text">Taller de acupuntura</div>
+
+      <div class="activity-row">
+        <div class="user-info">
+          <div class="user-icon">👤</div>
+          <div class="user-name">Paco</div>
+        </div>
+        <div class="plus-btn" onclick="toggleApuntado(this)">+</div>
+      </div>
+      <div class="activity-text">Pregunta dudas acerca de...</div>
+
+      <!-- Separador para "Tu calendario" -->
+      <div style="margin: 40px 0 20px 0;">
+        <h2 style="font-size: 20px; color: var(--blue-dark);">Tu calendario</h2>
+      </div>
+
+      <div class="calendar-box">
+        <div class="calendar-label">Tu calendario</div>
+        <div class="calendar-content">(Muestra los eventos a los que te has apuntado)</div>
+      </div>
+
+      <div class="section-title">Tus eventos</div>
+
+      <div class="activity-row">
+        <div class="user-info">
+          <div class="user-icon">👤</div>
+          <div class="user-name">Juana Mari</div>
+        </div>
+        <div class="check-icon">✓</div>
+      </div>
+      <div class="activity-text">Taller de acupuntura</div>
+
+      <div class="activity-row">
+        <div class="user-info">
+          <div class="user-icon">👤</div>
+          <div class="user-name">Emilio</div>
+        </div>
+        <div class="check-icon">✓</div>
+      </div>
+      <div class="activity-text">Taller de esgrima</div>
     </section>
 
     <section id="foro" class="page fade" style="display:none;">
       <h1>Foro</h1>
-      <p>Comparte tus experiencias, ideas o consejos con otros usuarios.</p>
-      <img src="/mnt/data/MovilForo.png" alt="Foro" style="width:100%;max-width:300px;border-radius:12px;margin:20px 0;">
-      <button class="btn" data-target="home">Volver</button>
+      
+      <div class="search-bar">
+        <span style="font-size: 18px;">🔍</span>
+        <input type="text" placeholder="Buscar..." style="border:none; outline:none; flex:1; background:transparent; padding: 4px 8px;">
+        <span style="font-size: 20px; cursor: pointer;">☰</span>
+      </div>
+
+      <div class="forum-post">
+        <div class="activity-row" style="margin: 0 0 10px 0;">
+          <div class="user-info" style="margin-left: 0;">
+            <div class="user-icon">👤</div>
+            <div class="user-name">Juana Mari</div>
+          </div>
+        </div>
+        <div class="activity-text" style="margin: 0;">(Comenta su caso)</div>
+      </div>
+
+      <div class="forum-post">
+        <div class="activity-row" style="margin: 0 0 10px 0;">
+          <div class="user-info" style="margin-left: 0;">
+            <div class="user-icon">👤</div>
+            <div class="user-name">Conchita</div>
+          </div>
+        </div>
+        <div class="activity-text" style="margin: 0;">Le responde</div>
+      </div>
+
+      <div class="forum-post">
+        <div class="activity-row" style="margin: 0 0 10px 0;">
+          <div class="user-info" style="margin-left: 0;">
+            <div class="user-icon">👤</div>
+            <div class="user-name">Jesus</div>
+          </div>
+        </div>
+        <div class="activity-text" style="margin: 0;">Le responde</div>
+      </div>
+
+      <div class="forum-post">
+        <div class="activity-row" style="margin: 0 0 10px 0;">
+          <div class="user-info" style="margin-left: 0;">
+            <div class="user-icon">👤</div>
+            <div class="user-name">Ramón</div>
+          </div>
+        </div>
+        <div class="activity-text" style="margin: 0;">(Cuenta su caso)</div>
+      </div>
     </section>
   </main>
 
@@ -163,11 +292,16 @@
     const pages=document.querySelectorAll('.page');
 
     function showPage(id){
-      pages.forEach(p=>{p.style.display='none';p.classList.remove('fade');});
+      pages.forEach(p=>{
+        p.style.display='none';
+        p.classList.remove('fade');
+      });
       const el=document.getElementById(id);
       if(el){
         el.style.display='block';
-        el.classList.add('fade');
+        setTimeout(()=>{
+          el.classList.add('fade');
+        }, 10);
       }
       setActiveBtn(id);
     }
@@ -178,7 +312,11 @@
       });
     });
 
-    document.getElementById('homeBtn').addEventListener('click',()=>showPage('home'));
+    // Botón Home en el header
+    document.getElementById('homeBtn').addEventListener('click',()=>{
+      activeButton = null; // Resetear el botón activo
+      showPage('home');
+    });
 
     const recursosBtn=document.getElementById('recursosBtn');
     const calendarioBtn=document.getElementById('calendarioBtn');
@@ -202,6 +340,19 @@
       calendarioBtn.classList.remove('active-btn');
       if(section==='recursos') recursosBtn.classList.add('active-btn');
       if(section==='calendario') calendarioBtn.classList.add('active-btn');
+    }
+
+    // Función para toggle apuntado/no apuntado en calendario
+    function toggleApuntado(btn){
+      if(btn.textContent === '+'){
+        btn.textContent = '✓';
+        btn.classList.add('check-icon');
+        btn.classList.remove('plus-btn');
+      } else {
+        btn.textContent = '+';
+        btn.classList.remove('check-icon');
+        btn.classList.add('plus-btn');
+      }
     }
   </script>
 </body>
