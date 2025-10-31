@@ -26,6 +26,13 @@
     object-fit: contain;
     border-radius: 6px;
     }
+    .float-btn img {
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+    border-radius: 0;
+    pointer-events: none;
+    } 
     /* Barra de navegación */
     header{background:var(--blue-dark);color:var(--white);display:flex;align-items:center;justify-content:space-between;padding:12px 16px;position:sticky;top:0;z-index:50}
     header .icon{font-size:22px;cursor:pointer}
@@ -56,7 +63,7 @@
     .activity-text{border:2px solid var(--blue-dark);border-radius:12px;padding:12px;margin:10px auto;width:95%;max-width:500px;text-align:justify;line-height:1.4}
     .comment{margin-left:40px}
 
-    /* Responsive desktop */
+    /* Responsive desktop 0 bien puesto*/
     @media(min-width:768px){
       body{align-items:center}
       main{max-width:700px;padding:40px}
@@ -75,8 +82,8 @@
   -->
   <header>
     <div class="icon" id="menuBtn">☰</div>
-    <div class="icon" id="homeBtn">🏠</div>
-    <div class="icon" id="loginBtn">🔐</div>
+    <img class="icon-img" src="img/home.png" alt="home">
+    <img class="icon-img" src="img/iniciosesion.png" alt="iniciosesion">
   </header>
 
   <main id="content">
@@ -143,8 +150,13 @@
     </section>
   </main>
 
-  <div class="float-btn float-left" id="recursosBtn">📍</div>
-  <div class="float-btn float-right" id="calendarioBtn">🗓️</div>
+  <div class="float-btn float-left" id="recursosBtn">
+    <img src="img/chincheta.png" alt="Recursos">
+  </div>
+  <div class="float-btn float-right" id="calendarioBtn">
+    <img src="img/calendario.png" alt="Calendario">
+  </div>
+  
 
   <script>
     const buttons=document.querySelectorAll('[data-target]');
