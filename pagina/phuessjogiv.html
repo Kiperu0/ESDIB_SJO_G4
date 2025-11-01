@@ -47,7 +47,7 @@
     h1{font-size:28px;margin-bottom:12px}
     p{margin-bottom:24px;max-width:320px}
 
-    .btn{padding:10px 16px;border:2px solid var(--blue-dark);border-radius:12px;background:var(--white);color:var(--blue-dark);font-weight:bold;cursor:pointer;transition:0.2s;margin-bottom:28px}
+    .btn{padding:10px 16px;border:2px solid var(#b3b3b3);background:var(#f0f0f0);color:var(#b3b3b3);font-weight:bold;cursor:pointer;transition:0.2s;margin-bottom:28px}
     .btn:hover{background:var(--blue-dark);color:var(--white)}
 
     /* Iconos flotantes */
@@ -58,24 +58,26 @@
     .active-btn{background:var(--blue-dark);color:var(--white)}
 
     /* Página actividades */
-    .text-block{border:2px solid var(--blue-dark);border-radius:12px;padding:16px;margin:20px auto;max-width:500px;text-align:justify;line-height:1.5;}
+    .text-block{border:2px solid var(--blue-dark);padding:16px;margin:20px auto;max-width:500px;text-align:justify;line-height:1.5;}
     .section-title{background:var(--blue-dark);color:var(--white);padding:8px 0;margin:20px 0;border-radius:8px;max-width:500px;text-align:center;font-weight:bold}
+    /* Para Actividades Propuestas de CALENDARIO */
+    .actividadespropuestas{background:var(--blue-dark);color:var(--white);padding:8px 0;margin:20px 0;border-radius:8px;max-width:500px;text-align:center;font-weight:bold}
 
     .activity-row{display:flex;align-items:center;justify-content:space-between;width:95%;max-width:500px;margin:10px auto}
     .user-info{display:flex;align-items:center;gap:8px;margin-left:10px}
     .user-icon{font-size:24px;margin-left:-6px}
     .user-name{border:2px solid var(--blue-dark);background:var(--gray-dark);color:#2a2a6e;border-radius:8px;padding:6px 12px;font-weight:600;min-width:80px;max-width:120px;text-align:center}
     .plus-btn{width:32px;height:32px;border-radius:50%;background:var(--white);border:2px solid var(--blue-dark);color:var(--blue-dark);display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:18px;cursor:pointer}
-    .activity-text{border:2px solid var(--blue-dark);border-radius:12px;padding:12px;margin:10px auto;width:95%;max-width:500px;text-align:justify;line-height:1.4}
+    .activity-text{border:2px solid var(--blue-dark);padding:12px;margin:10px auto;width:95%;max-width:500px;text-align:justify;line-height:1.4}
     .comment{margin-left:40px}
 
     /* Estilos para Recursos */
     .resource-item{margin: 20px auto; width: 95%; max-width: 500px;}
-    .resource-tag{background: var(--blue-light); color: var(--blue-dark); padding: 8px 16px; border-radius: 8px; display: inline-block; margin-bottom: 12px; font-weight: 600;}
-    .resource-image{border: 2px solid var(--blue-dark); border-radius: 12px; padding: 60px 20px; text-align: center; color: #999; margin-bottom: 12px;}
+    .resource-tag{background:#f0f0f0; color:#575656;border: 2px solid #b3b3b3; padding: 8px 16px; display: inline-block; margin-bottom: 12px; font-weight: 600;}
+    .resource-image{border: 2px solid var(--blue-dark); padding: 60px 20px; text-align: center; color: #999; margin-bottom: 12px;}
 
     /* Estilos para Calendario */
-    .calendar-box{border: 2px solid var(--blue-dark); border-radius: 12px; padding: 16px; margin: 20px auto; max-width: 500px; width: 95%;}
+    .calendar-box{border: 2px solid var(--blue-dark); border-radius: 12px; padding: 16px; margin: 5px auto;margin-bottom: 30px; max-width: 500px; width: 100%;}
     .calendar-label{color: #999; font-size: 14px; margin-bottom: 8px;}
     .calendar-content{color: #999; font-size: 13px; line-height: 1.4;}
     .check-icon{width: 32px; height: 32px; border-radius: 50%; background: var(--white); border: 2px solid var(--blue-dark); color: var(--blue-dark); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 20px;}
@@ -85,12 +87,12 @@
     .forum-post{margin: 20px auto; width: 95%; max-width: 500px;}
 
     /* Estilos para Home según wireframe */
-    .home-title{background: var(--blue-light); color: var(--blue-dark); padding: 20px; border-radius: 12px; font-size: 24px; font-weight: bold; margin-bottom: 20px !important; width: 92%; margin-left: auto; margin-right: auto;}
-    .btn-home{margin: 16px 0 !important; display: block; margin-left: 8%;}
+    .home-title{background: #f0f0f0; color: #575656; padding: 30px; border: 2px solid #b3b3b3;font-size: 24px; font-weight: normal; margin-bottom: 10px !important; width: 100%; margin-left: auto; margin-right: auto; align-items: center;}
+    .btn-home{margin: 16px 0 !important; display: block; margin-left: 8%; color:#575656;}
     
     /* Texto del home */
-    #home .text-block{width: 92%; margin: 20px auto !important; text-align: left; line-height: 1.5;}
-    #home .text-block:first-of-type{width: 92%; margin: 20px auto !important;}
+    #home .text-block{width: 100%; margin: 20px auto !important; text-align: left; line-height: 1.5;}
+    #home .text-block:first-of-type{width: 100%; margin: 20px auto !important;}
 
     /* Responsive desktop */
     @media(min-width:768px){
@@ -104,12 +106,12 @@
   <header>
     <div class="icon" id="menuBtn">☰</div>
     <img class="icon-img" id="homeBtn" src="img/home.png" alt="home" style="filter: brightness(0) invert(1); cursor: pointer;">
-    <img class="icon-img" src="img/iniciosesion.png" alt="iniciosesion">
+    <img class="icon-img" src="img/iniciosesion.png" alt="iniciosesion" style="filter: brightness(0) invert(1); cursor: pointer;">
   </header>
 
   <main id="content">
     <section id="home" class="page active fade">
-      <div class="home-title">Título</div>
+      <div class="home-title">Phubbing</div>
       <div class="text-block">Cuerpo de texto</div>
       <button class="btn btn-home" data-target="actividades">Actividades</button>
       <div class="text-block">Cuerpo de texto</div>
@@ -118,9 +120,9 @@
     </section>
 
     <section id="actividades" class="page fade" style="display:none;">
-      <h1>Actividades</h1>
+      <h1>Calendario</h1>
       <div class="text-block">
-        Este es el bloque de texto principal con borde azul marino. Aquí se presenta una descripción general o texto largo sobre las actividades.
+        Tus actividades.
       </div>
 
       <div class="section-title">Actividades propuestas</div>
@@ -170,40 +172,13 @@
     </section>
 
     <section id="calendario" class="page fade" style="display:none;">
-      <h1>Calendario</h1>
-      
-      <div class="calendar-box">
-        <div class="calendar-label">Calendario</div>
-        <div class="calendar-content">(Muestra eventos propuestos por los usuarios)</div>
-      </div>
 
-      <div class="section-title">Actividades propuestas</div>
-
-      <div class="activity-row">
-        <div class="user-info">
-          <img class="user-icon icon-img" src="img/iniciosesion.png" alt="Usuario">
-          <div class="user-name">Juana Mari</div>
-        </div>
-        <div class="plus-btn" onclick="toggleApuntado(this)">+</div>
-      </div>
-      <div class="activity-text">Taller de acupuntura</div>
-
-      <div class="activity-row">
-        <div class="user-info">
-          <div class="user-icon">👤</div>
-          <div class="user-name">Paco</div>
-        </div>
-        <div class="plus-btn" onclick="toggleApuntado(this)">+</div>
-      </div>
-      <div class="activity-text">Pregunta dudas acerca de...</div>
-
-      <!-- Separador para "Tu calendario" -->
-      <div style="margin: 40px 0 20px 0;">
-        <h2 style="font-size: 20px; color: var(--blue-dark);">Tu calendario</h2>
+      <!-- Separador para seccion Tu calendario  -->
+      <div style="margin: 1px 0 1px 0;">
+        <h1 style="font-size: 20px; color:#b3b3b3; text-align: left;font-weight: normal;">Tu calendario</h1>
       </div>
 
       <div class="calendar-box">
-        <div class="calendar-label">Tu calendario</div>
         <div class="calendar-content">(Muestra los eventos a los que te has apuntado)</div>
       </div>
 
